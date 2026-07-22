@@ -1,9 +1,4 @@
----
----
-
-@import 'chirpy';
-
-/* 사이드바 타이틀 단어 단위 줄바꿈 및 자간 조정 */
+/* _sass/custom.scss 파일 내용 */
 #sidebar .site-title {
   word-break: keep-all !important;
   letter-spacing: -1px !important;
