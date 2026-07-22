@@ -1,6 +1,6 @@
 ---
 title: "MediNote: QR코드 기반 사전 진료 연동 시스템"
-date: 2026-07-22 15:00:00 +0900
+date: 2026-07-13 15:00:00 +0900
 categories: [프로젝트, 개인 프로젝트]
 tags: [Java, Spring Boot, MySQL, AWS, HL7 FHIR]
 ---
