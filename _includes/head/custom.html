@@ -1,20 +1,24 @@
-<!-- 1. 한 줄 강제 고정 해제 및 두 줄 허용 CSS -->
+<!-- _includes/head/custom.html -->
 <style>
-  #sidebar .site-title,
+  /* 1. 원래 있던 한 줄짜리 글자를 투명망토처럼 안 보이게 숨깁니다 (크기를 0으로 만듦) */
   #sidebar .site-title a {
-    white-space: normal !important;
-    word-break: keep-all !important;
-    line-height: 1.3 !important;
+    font-size: 0 !important; 
+  }
+  
+  /* 2. 첫 번째 줄 가짜 글자를 생성합니다 */
+  #sidebar .site-title a::before {
+    content: "백엔드 개발자";
+    font-size: 1.15rem;       /* 원래 제목 크기로 복구 */
+    display: block;           /* 강제로 한 줄을 다 차지하게 만듦 (줄바꿈 효과) */
+    margin-bottom: 2px;       /* 위아래 줄 간격 */
+    letter-spacing: normal;
+  }
+  
+  /* 3. 두 번째 줄 가짜 글자를 생성하고 자간을 줄여 '오'를 살립니다 */
+  #sidebar .site-title a::after {
+    content: "김동엽 포트폴리오";
+    font-size: 1.15rem;       /* 원래 제목 크기로 복구 */
+    display: block;           /* 다음 줄로 넘어감 */
+    letter-spacing: -1px;     /* '오' 글자 밀림 방지용 자간 축소 */
   }
 </style>
-
-<!-- 2. 사이드바 글자만 콕 집어서 예쁘게 디자인하는 JS -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var sidebarTitle = document.querySelector('#sidebar .site-title a');
-    if (sidebarTitle) {
-      // 브라우저 탭은 건드리지 않고, 사이드바에만 줄바꿈과 자간을 적용합니다.
-      sidebarTitle.innerHTML = "백엔드 개발자<br><span style='letter-spacing: -1px;'>김동엽 포트폴리오</span>";
-    }
-  });
-</script>
