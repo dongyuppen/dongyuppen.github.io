@@ -1,13 +1,20 @@
+<!-- 1. 한 줄 강제 고정 해제 및 두 줄 허용 CSS -->
+<style>
+  #sidebar .site-title,
+  #sidebar .site-title a {
+    white-space: normal !important;
+    word-break: keep-all !important;
+    line-height: 1.3 !important;
+  }
+</style>
+
+<!-- 2. 사이드바 글자만 콕 집어서 예쁘게 디자인하는 JS -->
 <script>
-  // 브라우저 상단 탭(document.title)에 들어간 HTML 태그만 찾아내서 싹 지우는 코드
-  document.addEventListener("DOMContentLoaded", function () {
-    // 1. <br> 태그는 띄어쓰기 한 칸으로 바꿔서 단어 사이를 띄워줍니다.
-    var cleanTitle = document.title.replace(/<br\s*\/?>/gi, " ");
-
-    // 2. <span> 등 나머지 HTML 태그 찌꺼기는 흔적도 없이 지워버립니다.
-    cleanTitle = cleanTitle.replace(/<[^>]+>/g, "");
-
-    // 3. 깨끗해진 글자를 브라우저 탭 이름으로 다시 세팅합니다.
-    document.title = cleanTitle;
+  document.addEventListener("DOMContentLoaded", function() {
+    var sidebarTitle = document.querySelector('#sidebar .site-title a');
+    if (sidebarTitle) {
+      // 브라우저 탭은 건드리지 않고, 사이드바에만 줄바꿈과 자간을 적용합니다.
+      sidebarTitle.innerHTML = "백엔드 개발자<br><span style='letter-spacing: -1px;'>김동엽 포트폴리오</span>";
+    }
   });
 </script>
