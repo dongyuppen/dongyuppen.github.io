@@ -1,0 +1,27 @@
+---
+---
+
+/* 1. 테마의 원본 디자인을 정상적으로 불러옵니다 (에러 원인 해결) */
+@import 'main';
+
+/* 2. 원래 있던 한 줄짜리 제목을 투명망토처럼 숨깁니다 */
+#sidebar .site-title a {
+  font-size: 0 !important;
+}
+
+/* 3. 첫 번째 줄 가짜 글자를 생성합니다 */
+#sidebar .site-title a::before {
+  content: '백엔드 개발자';
+  font-size: 1.15rem;
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: normal;
+}
+
+/* 4. 두 번째 줄 가짜 글자를 생성하고 자간을 줄여 '오'를 살립니다 */
+#sidebar .site-title a::after {
+  content: '김동엽 포트폴리오';
+  font-size: 1.15rem;
+  display: block;
+  letter-spacing: -1px;
+}
