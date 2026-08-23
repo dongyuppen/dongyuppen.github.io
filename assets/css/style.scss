@@ -11,6 +11,6 @@
    `.site-title` 자체를 선택해 word-break: keep-all로 단어(공백) 단위로만
    줄바꿈되게 하면, "김동엽" 같은 고유명사가 글자 단위로 쪼개지지 않는다. */
 #sidebar .site-title {
-  word-break: keep-all;
-  overflow-wrap: break-word;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
 }
