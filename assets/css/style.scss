@@ -1,27 +1,16 @@
 ---
 ---
 
-/* 1. 테마의 원본 디자인을 정상적으로 불러옵니다 (에러 원인 해결) */
+/* 1. 테마의 원본 디자인을 정상적으로 불러옵니다 */
 @import 'main';
 
-/* 2. 원래 있던 한 줄짜리 제목을 투명망토처럼 숨깁니다 */
-#sidebar .site-title a {
-  font-size: 0 !important;
-}
-
-/* 3. 첫 번째 줄 가짜 글자를 생성합니다 */
-#sidebar .site-title a::before {
-  content: '백엔드 개발자';
-  font-size: 1.15rem;
-  display: block;
-  margin-bottom: 2px;
-  letter-spacing: normal;
-}
-
-/* 4. 두 번째 줄 가짜 글자를 생성하고 자간을 줄여 '오'를 살립니다 */
-#sidebar .site-title a::after {
-  content: '김동엽 포트폴리오';
-  font-size: 1.15rem;
-  display: block;
-  letter-spacing: -1px;
+/* 2. 사이드바 타이틀 줄바꿈 처리.
+   실제 DOM 구조는 <a class="site-title" href="/">텍스트</a> 로,
+   .site-title 클래스가 a 태그 자기 자신에 붙어있다 (a의 자식이 아님).
+   그래서 기존의 `.site-title a` 선택자는 아무 것도 매칭하지 못해 동작하지 않았음.
+   `.site-title` 자체를 선택해 word-break: keep-all로 단어(공백) 단위로만
+   줄바꿈되게 하면, "김동엽" 같은 고유명사가 글자 단위로 쪼개지지 않는다. */
+#sidebar .site-title {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
