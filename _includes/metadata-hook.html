@@ -1,3 +1,0 @@
-<!-- A placeholder to allow defining custom metadata -->
-<!-- 캐시 무효화용: 배포마다 값이 바뀌는 쿼리스트링을 붙여 스타일시트가 항상 최신으로 로드되게 함 -->
-<link rel="stylesheet" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}?v={{ site.time | date: '%s' | md5 }}">
